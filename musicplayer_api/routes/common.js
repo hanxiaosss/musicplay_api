@@ -19,4 +19,15 @@ router.get('/recommand/list', function(req, res) {
     });
 });
 
+// songlist detail page api
+
+router.get('/page/songlist/:id', function(req, res) {
+    var id = req.params.id;
+    console.log('the songlist detail page called' + id);
+    commonDAO.songList(id, function(common) {
+        console.log('enter list success callbak');
+        res.json(result.createResult(true, common));
+    });
+});
+
 module.exports = router;
