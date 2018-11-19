@@ -33,7 +33,6 @@ module.exports = {
                 callback(data);
             } else {
                 var arr = eval(data[0].include);
-                console.log(arr);
                 if (arr.length > 0) {
                     async.map(arr, function(item, callback1) {
                         pool.query(songSqlMap.getNameById, item, function(error, resultdata) {

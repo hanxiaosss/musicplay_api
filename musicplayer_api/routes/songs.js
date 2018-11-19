@@ -3,15 +3,15 @@ var router = express.Router();
 var songDAO = require('../dao/songDAO');
 var result = require('../model/result');
 
-/* list users */
-router.get('/', function(req, res) {
+/* list songs */
+router.get('song/', function(req, res) {
     console.log('list songs called');
     songDAO.list(function(songs) {
         res.json(result.createResult(true, songs));
     });
 });
 
-/* get user */
+/* get song */
 router.get('/:id', function(req, res) {
     var id = req.params.id;
     console.log('get song called, id: ' + id);
